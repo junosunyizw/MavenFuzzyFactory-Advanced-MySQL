@@ -2,10 +2,26 @@
 
 ## Introduction
 
+<details> 
+<summary>
+Click to expand Introduction
+	
+</summary>
 
+
+
+</details> 
+
+***
 
 
 ## Table of Contents
+
+<details> 
+<summary>
+Click to expand Table of Contents
+	
+</summary>
 
 - Entity Relationship Diagram
 - Analyzing Traffic Sources
@@ -17,6 +33,8 @@
 - User Analysis
 - Final Project
 
+</details> 
 
+***
 
 
