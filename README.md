@@ -124,8 +124,14 @@ Click to expand ERD
 
 ### Q1: Finding Top Traffic Sources
 
+<img width="652" alt="Q1" src="https://user-images.githubusercontent.com/69760533/233090487-058b9847-2364-4036-82af-b7f9f635de0d.png">
 
 
 - Request: CEO wants to review website sessions coming from. By Breaking down `UTM Sources`, `compaign` and `referring domain` and before `2012-04-12`
 - Results: 
+
+<img width="716" alt="Q1-RESULTS" src="https://user-images.githubusercontent.com/69760533/233090687-1da1ca4a-9e3f-4431-adb4-e6ff9ec9e29f.png">
+
+
+<img width="652" alt="Q1-DRILLDOWN" src="https://user-images.githubusercontent.com/69760533/233090729-e9cf84bf-4587-47bf-9f2e-af187d616301.png">
 
