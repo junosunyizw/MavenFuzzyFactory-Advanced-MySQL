@@ -105,5 +105,17 @@ Click to expand ERD
 
 ## Analyzing Traffic Sources
 
+### Traffic Source Analysis
 
+- To understanding where your customers are coming from and which channels driving the highest quality traffic.
+- Sources including Email, Social Media, Search engine and direct traffic.
+- To look at the conversion rate (CVR), Which is the percentage of sessions that convert to sales activity.
 
+### Why CVR analysis is important to business activity
+- To understand how qualified that traffic is and how valuable each of those traffic sources is to us.
+- To shifting budget towards sources of traffic driving the strongest conversion rates.
+- Comparing user behavior patterns across traffic sources to inform creative and messaging strategy.
+- Identifying opportunities to elimiate wastes spend or scale high-converting traffic
+
+### Targets
+- Analyzing traffic sources
