@@ -23,7 +23,7 @@ Click to expand Table of Contents
 	
 </summary>
 
-- Entity Relationship Diagram
+- Entity Relationship Diagram(ERD)
 - Analyzing Traffic Sources
 - Analyzing Website Performances
 - Mid-Course Project
@@ -37,4 +37,14 @@ Click to expand Table of Contents
 
 ***
 
+## Entity Relationship Diagram(ERD)
+<details> 
+<summary>
+Click to expand ERD
+	
+</summary>
 
+
+</details> 
+
+***
