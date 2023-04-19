@@ -59,6 +59,16 @@ Click to expand ERD
 	
 </summary>
 
+ERD.png
+
+order_item_refunds.png
+order_items.png
+orders.png
+products.png
+website_pageviews.png
+website_sessions.png
+
+
 
 </details> 
 
