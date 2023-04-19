@@ -127,11 +127,22 @@ Click to expand ERD
 <img width="652" alt="Q1" src="https://user-images.githubusercontent.com/69760533/233090487-058b9847-2364-4036-82af-b7f9f635de0d.png">
 
 
-- Request: CEO wants to review website sessions coming from. By Breaking down `UTM Sources`, `compaign` and `referring domain` and before `2012-04-12`
-- Results: 
+- Request: CEO wants to review website sessions coming from. By Breaking down UTM Sources, compaign and referring domain and before 2012-04-12
+- Results: `utm_source`,`utm_campaign`,`http_referer`,`count(DISTINCT website_session_id)` and Date before `2012-04-12`
+
+```SQL
+SELECT utm_source,utm_campaign,http_referer,
+    count(DISTINCT website_session_id) num_sessions
+FROM website_sessions
+WHERE created_at < '2012-04-12' -- count sessions only before '2012-04-12'
+GROUP BY 1,2,3 
+ORDER BY 4 DESC;
+```
 
 <img width="716" alt="Q1-RESULTS" src="https://user-images.githubusercontent.com/69760533/233090687-1da1ca4a-9e3f-4431-adb4-e6ff9ec9e29f.png">
 
+Next Steps:
+After getting results, CEO wants to drill deeper into gsearch nonbrand campaign traffic to explore potential optimization opportunities
 
 <img width="652" alt="Q1-DRILLDOWN" src="https://user-images.githubusercontent.com/69760533/233090729-e9cf84bf-4587-47bf-9f2e-af187d616301.png">
 
