@@ -67,22 +67,27 @@ Click to expand ERD
 
 
 `order_items` -
+
 <img width="1201" alt="order_items" src="https://user-images.githubusercontent.com/69760533/232990353-59711233-6b95-4248-8b52-7fd107820313.png">
 
 
 `orders` - 
+
 <img width="1384" alt="orders" src="https://user-images.githubusercontent.com/69760533/232990361-9310e7df-5833-4b4b-891f-465e5ec8cd19.png">
 
 
 `products` -
+
 <img width="611" alt="products" src="https://user-images.githubusercontent.com/69760533/232990381-9cf0e902-0c4b-4eae-9492-c493f1280caf.png">
 
 
 `website_pageviews` - 
+
 <img width="673" alt="website_pageviews" src="https://user-images.githubusercontent.com/69760533/232990397-13b6c6de-71c0-4754-a3d4-d7d276e0d050.png">
 
 
 `website_sessions` - 
+
 <img width="1700" alt="website_sessions" src="https://user-images.githubusercontent.com/69760533/232990415-3f384165-355b-4d1c-8f16-90d129584571.png">
 
 
