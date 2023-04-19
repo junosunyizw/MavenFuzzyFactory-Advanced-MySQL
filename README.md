@@ -128,7 +128,7 @@ Click to expand ERD
 
 
 - Request: CEO wants to review website sessions coming from. By Breaking down UTM Sources, compaign and referring domain and before 2012-04-12
-- Results: `utm_source`,`utm_campaign`,`http_referer`,`count(DISTINCT website_session_id)` and Date before `2012-04-12`
+- Results: `utm_source`,`utm_campaign`,`http_referer`,`count(DISTINCT website_session_id)` and `created_at < '2012-04-12'`
 
 ```SQL
 SELECT utm_source,utm_campaign,http_referer,
