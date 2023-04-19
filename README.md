@@ -146,3 +146,5 @@ After getting results, CEO wants to drill deeper into gsearch nonbrand campaign 
 
 <img width="652" alt="Q1-DRILLDOWN" src="https://user-images.githubusercontent.com/69760533/233090729-e9cf84bf-4587-47bf-9f2e-af187d616301.png">
 
+### Q2: Traffic Conversion Rates
+
