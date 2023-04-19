@@ -119,3 +119,13 @@ Click to expand ERD
 
 ### Targets
 - Analyzing traffic sources
+
+***
+
+### Q1: Finding Top Traffic Sources
+
+
+
+- Request: CEO wants to review website sessions coming from. By Breaking down `UTM Sources`, `compaign` and `referring domain` and before `2012-04-12`
+- Results: 
+
