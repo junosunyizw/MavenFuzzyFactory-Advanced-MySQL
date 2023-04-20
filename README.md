@@ -186,7 +186,7 @@ the following action is to reduce bids and then monitor the impact of bigs reduc
 
 Analyzing for bid optimization is about understanding the value of various segments of paid traffic, so that you can optimize your marketing budget.
 
- - **Target:** To figure out the right amount of bid for different segments of traffic based on potential revenue.
+- **Target:** To figure out the right amount of bid for different segments of traffic based on potential revenue.
 
 - **How?:** 
     - Using conversion rate and revenue per click
@@ -288,4 +288,21 @@ GROUP BY week(w.created_at)
 
 
 ## **Analyzing Website Performances**
+
+Website content analysis is about understanding which pages are seen the most by your users, to identify where to focus on improving your business.
+
+- **Target:**
+    - Finding the most-viewed pages that customers view on your site
+    - Identifying the most common entry pages to your websites (home page)
+    - Understandinging how those pages perform for the business activities.
+
+- **How?**
+    - Analyzing home pages
+    - Analyzing bounce rates and landing pages test
+    - building conversion funnels and testing conversion paths.
+
+***
+
+## **Q6: Identifying Top Website Pages**
+
 
