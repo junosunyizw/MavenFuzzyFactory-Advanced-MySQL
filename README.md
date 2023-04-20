@@ -205,7 +205,7 @@ customers driven to your site
 
 - **Request:** After reducing bids on 2012-04-15, to find out the the `trend session volume` and impact on session for `gsearch`,`nonbrand`campaign `by weeks` and `before 2012-05-10`. *As order volume and CVR is highly related to sessions, both of figures will appear on the results.*
 
-- **Results:** 
+- **Results:** the number of sessions and orders and even CVR has dropped after reducing bids so the campaign highly regard to bid changes.
 
 ```SQL
 select min(DATE(w.created_at)) week_start_date,
@@ -225,5 +225,8 @@ GROUP BY 2;
 Continuing to monitor volume levels and think about how we could make the campaigns more efficient so that we can increase volume again.
 
 <img width="652" alt="Q3-NEXT" src="https://user-images.githubusercontent.com/69760533/233378790-1cdb4f9d-08aa-458e-b8a1-79fbf99cc36d.png">
+
+***
+
 
 
