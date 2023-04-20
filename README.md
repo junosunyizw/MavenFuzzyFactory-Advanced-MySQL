@@ -228,5 +228,14 @@ Continuing to monitor volume levels and think about how we could make the campai
 
 ***
 
+- **Q4: Traffic Source Bid Optimization**
 
 
+
+
+
+- **Request:**
+
+
+
+- **Results:** 
