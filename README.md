@@ -176,3 +176,11 @@ GROUP BY 1,2
 
 - **Next Steps:**
 the following action is to reduce bids and then monitor the impact of bigs reductions for campaign.
+
+<img width="654" alt="Q2-NEXT" src="https://user-images.githubusercontent.com/69760533/233330351-1cbd6e90-1cd4-45f7-b77c-ee7a95979445.png">
+
+
+
+
+
+
