@@ -203,7 +203,7 @@ customers driven to your site
 <img width="633" alt="Q3" src="https://user-images.githubusercontent.com/69760533/233364043-b98cc55a-440a-4c03-bea9-fe72d1935232.png">
 
 
-- **Request:** 
+- **Request:** After reducing bids on 2012-04-15, to find out the the `trend session volume` and impact on session for `gsearch`,`nonbrand`campaign `by weeks` and `before 2012-05-10`. *As order volume and CVR is highly related to sessions, both of figures will be show on table*
 
 - **Results:** 
 
@@ -216,7 +216,7 @@ select min(DATE(w.created_at)) week_start_date,
 from website_sessions w
 LEFT JOIN orders o
 on o.website_session_id=w.website_session_id
-WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '2012-05-10' -- looking at `trend` volume means to compare data before bids down.
+WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '2012-05-10' -- looking at `trend` volume means to also show data before bids down for comparing
 GROUP BY 2;
 ```
 <img width="874" alt="Q3-RESULTS" src="https://user-images.githubusercontent.com/69760533/233364098-6d5c999e-3a4a-4949-9011-ff5e818618f4.png">
