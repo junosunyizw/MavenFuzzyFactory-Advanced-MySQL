@@ -232,9 +232,7 @@ Continuing to monitor volume levels and think about how we could make the campai
 
 ### **Q4: Traffic Source Bid Optimization**
 
-
-
-
+<img width="652" alt="Q4" src="https://user-images.githubusercontent.com/69760533/233405294-3b473953-c148-49cc-9c8d-be36343f3b01.png">
 
 - **Request:** what is the CVR from session to order by device type? `Desktop`, `Mobile` and date `< 2012-05-11`
 
@@ -252,3 +250,6 @@ WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '20
 GROUP BY 1;
 ```
 
+<img width="652" alt="Q4-RESULTS" src="https://user-images.githubusercontent.com/69760533/233405398-822e64db-b6f3-46e5-bfd5-3e0baa59d176.png">
+
+***
