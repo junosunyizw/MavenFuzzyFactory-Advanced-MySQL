@@ -165,7 +165,7 @@ SELECT utm_source,utm_campaign,
 FROM website_sessions w
 LEFT JOIN orders o
 ON o.website_session_id=w.website_session_id
-WHERE w.utm_source = 'gsearch' and w.utm_campaign = 'nonbrand' and w.created_at < '2012-04-12' -- Don`t forgot date
+WHERE w.utm_source = 'gsearch' and w.utm_campaign = 'nonbrand' and w.created_at < '2012-04-12' -- Don`t forget date
 GROUP BY 1,2
 ```
 
