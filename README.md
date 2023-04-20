@@ -236,11 +236,9 @@ Continuing to monitor volume levels and think about how we could make the campai
 
 
 
-- **Request:**
+- **Request:** what is the CVR from session to order by device type? `Desktop`, `Mobile` and date `< 2012-05-11`
 
-
-
-- **Results:** 
+- **Results:** Desktop bids were driving 3.73% which was almost reaching target CVR 4% of sessions. However, CVR for Mobile is very low, which is only 0.97%. So we should reduce mobile and transfer the paid traffic to desktop channel instead.
 
 ```SQL
 select w.device_type,
