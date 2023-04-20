@@ -155,7 +155,7 @@ After getting results, CEO wants to drill deeper into gsearch nonbrand campaign 
 - **Request:** 
 drilling down `gsearch` and `nonbrand`and before `'2012-04-12'` to find out CVR for this traffic source. If CVR >=4%, then increase bigs to drive volume, otherwise bids should be reduced.
 - **hints:**
-CVR = number of orders/number of sessions
+*CVR = number of orders/number of sessions*
 - **Results:** 
 Coversion rate is 2.92%, which is less than 4%, So company is overspending on gsearch nonbrand compaign through '2012-04-12'. the following action is to reduce bids and then monitor the impact of bigs reductions for campaign.
 
