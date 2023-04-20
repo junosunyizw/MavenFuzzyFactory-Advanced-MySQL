@@ -241,3 +241,16 @@ Continuing to monitor volume levels and think about how we could make the campai
 
 
 - **Results:** 
+
+```SQL
+select w.device_type,
+        count(DISTINCT w.website_session_id) num_sessions,
+        count(DISTINCT o.order_id) num_orders,
+        count(DISTINCT o.order_id)/count(DISTINCT w.website_session_id)*100 CVR
+from website_sessions w
+LEFT JOIN orders o
+on o.website_session_id=w.website_session_id
+WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '2012-05-11'
+GROUP BY 1;
+```
+
