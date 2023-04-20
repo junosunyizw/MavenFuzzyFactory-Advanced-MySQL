@@ -250,6 +250,14 @@ WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '20
 GROUP BY 1;
 ```
 
+- **Next Steps:**
+Looking for ways to optimise campaign.
+
 <img width="652" alt="Q4-RESULTS" src="https://user-images.githubusercontent.com/69760533/233405398-822e64db-b6f3-46e5-bfd5-3e0baa59d176.png">
 
 ***
+
+### **Q5: Traffic Source Segment Trending**
+
+
+
