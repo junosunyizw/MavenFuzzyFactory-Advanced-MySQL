@@ -153,21 +153,21 @@ After getting results, CEO wants to drill deeper into gsearch nonbrand campaign 
 
 
 - **Request:** 
-drilling down `gsearch` and `nonbrand`and before `'2012-04-12'` to find out CVR for this traffic source. If CVR >=4%, then increase bigs to drive volume, otherwise bids should be reduced.
+drilling down `gsearch` and `nonbrand`and before `'2012-04-14'` to find out CVR for this traffic source. If CVR >=4%, then increase bigs to drive volume, otherwise bids should be reduced.
 - **hints:**
 *CVR = number of orders/number of sessions*
 - **Results:** 
-Coversion rate is 2.92%, which is less than 4%, So company is overspending on gsearch nonbrand compaign through '2012-04-12'. the following action is to reduce bids and then monitor the impact of bigs reductions for campaign.
+Coversion rate is 2.87%, which is less than 4%, So company is overspending on gsearch nonbrand compaign through '2012-04-14'. the following action is to reduce bids and then monitor the impact of bigs reductions for campaign.
 
 ```SQL
 SELECT utm_source,utm_campaign,
         count(DISTINCT o.order_id) as num_orders,
         count(DISTINCT w.website_session_id) as num_webs,
-        count(DISTINCT o.order_id)/count(DISTINCT w.website_session_id)*100 as CVR -- CVR is 2.96% < 4% and reduce bids.
+        count(DISTINCT o.order_id)/count(DISTINCT w.website_session_id)*100 as CVR -- CVR is 2.87% < 4% and reduce bids.
 FROM website_sessions w
 LEFT JOIN orders o
 ON o.website_session_id=w.website_session_id
-WHERE w.utm_source = 'gsearch' and w.utm_campaign = 'nonbrand' and w.created_at < '2012-04-12' -- Don`t forget date
+WHERE w.utm_source = 'gsearch' and w.utm_campaign = 'nonbrand' and w.created_at < '2012-04-14' -- Don`t forget date
 GROUP BY 1,2
 ```
 
