@@ -263,9 +263,9 @@ Looking for ways to optimise campaign.
 
 <img width="652" alt="Q5" src="https://user-images.githubusercontent.com/69760533/233479802-6b27da71-5b2a-42c7-893c-12c29f89f0f9.png">
 
-- **Request:**
+- **Request:** after bid up on desktop on `2012-05-19`, what is weekly trends for all devices between `2012-04-15` and `2012-06-09`
 
-- **Results:**
+- **Results:** obviously, desktop volume has increased whereas mobile volume has remained same volume level after changes. Marketing director made the correct desision to foucs on desktop, which is able to optimize spend efficiently.
 
 ```SQL
 select min(date(w.created_at)) start_week,
@@ -280,3 +280,5 @@ GROUP BY week(w.created_at)
 ```
 
 <img width="540" alt="Q5-RESULTS" src="https://user-images.githubusercontent.com/69760533/233500326-2ae634cf-7758-4fc7-b44f-bad655acbac7.png">
+
+
