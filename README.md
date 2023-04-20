@@ -143,7 +143,7 @@ ORDER BY 4 DESC;
 
 <img width="716" alt="Q1-RESULTS" src="https://user-images.githubusercontent.com/69760533/233090687-1da1ca4a-9e3f-4431-adb4-e6ff9ec9e29f.png">
 
-**Next Steps:**
+- **Next Steps:**
 After getting results, CEO wants to drill deeper into gsearch nonbrand campaign traffic to explore potential optimization opportunities
 
 <img width="652" alt="Q1-DRILLDOWN" src="https://user-images.githubusercontent.com/69760533/233090729-e9cf84bf-4587-47bf-9f2e-af187d616301.png">
@@ -152,9 +152,9 @@ After getting results, CEO wants to drill deeper into gsearch nonbrand campaign 
 
 
 
-**Request:** 
+- **Request:** 
 drilling down `gsearch` and `nonbrand`and before `'2012-04-12'` to find out CVR for this traffic source. If CVR >=4%, then increase bigs to drive volume, otherwise bids should be reduced.
-**Results:** 
+- **Results:** 
 Coversion rate is 2.92%, which is less than 4%, So company is overspending on gsearch nonbrand compaign through '2012-04-12'. the following action is to reduce bids and then monitor the impact of bigs reductions for campaign.
 
 ```SQL
