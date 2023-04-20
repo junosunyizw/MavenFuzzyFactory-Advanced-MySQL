@@ -158,7 +158,7 @@ drilling down `gsearch` and `nonbrand`and before `'2012-04-14'` to find out CVR 
 - **hints:**
 *CVR = number of orders/number of sessions*
 - **Results:** 
-Coversion rate is 2.87%, which is less than 4%, So company is overspending on gsearch nonbrand compaign through '2012-04-14'. the following action is to reduce bids and then monitor the impact of bigs reductions for campaign.
+Coversion rate is 2.87%, which is less than 4%, So company is overspending on gsearch nonbrand compaign through '2012-04-14'.
 
 ```SQL
 SELECT utm_source,utm_campaign,
@@ -174,3 +174,5 @@ GROUP BY 1,2
 
 <img width="843" alt="Q2-RESULTS" src="https://user-images.githubusercontent.com/69760533/233286106-10ae8d20-b577-4960-b37f-baf16bff6ff4.png">
 
+- **Next Steps:**
+the following action is to reduce bids and then monitor the impact of bigs reductions for campaign.
