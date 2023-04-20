@@ -169,7 +169,7 @@ FROM website_sessions w
 LEFT JOIN orders o
 ON o.website_session_id=w.website_session_id
 WHERE w.utm_source = 'gsearch' and w.utm_campaign = 'nonbrand' and w.created_at < '2012-04-14' -- Don`t forget date
-GROUP BY 1,2
+GROUP BY 1,2;
 ```
 
 <img width="843" alt="Q2-RESULTS" src="https://user-images.githubusercontent.com/69760533/233286106-10ae8d20-b577-4960-b37f-baf16bff6ff4.png">
@@ -216,5 +216,5 @@ from website_sessions w
 LEFT JOIN orders o
 on o.website_session_id=w.website_session_id
 WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '2012-05-10' -- looking at `trend` volume means to compare data before bids down.
-GROUP BY 2
+GROUP BY 2;
 ```
