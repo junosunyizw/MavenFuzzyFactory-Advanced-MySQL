@@ -265,7 +265,7 @@ Looking for ways to optimise campaign.
 
 - **Request:** after bid up on desktop on `2012-05-19`, what is weekly trends for all devices between `2012-04-15` and `2012-06-09`
 
-- **Results:** Desktop volume has significantly increased whereas mobile volume has slightly dropped after changes on 2012-05-19. Marketing director made the correct desision to foucs on desktop, which is able to optimize spend efficiently.
+- **Results:** Desktop volume has significantly increased whereas mobile volume has slightly dropped after bidding up desktop channel on 2012-05-19. Marketing director made the correct desision to foucs on desktop, which is able to optimize spend efficiently.
 
 ```SQL
 select min(date(w.created_at)) start_week,
