@@ -278,3 +278,5 @@ on o.website_session_id=w.website_session_id
 WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at between '2012-04-15' and '2012-06-09'
 GROUP BY week(w.created_at)
 ```
+
+<img width="540" alt="Q5-RESULTS" src="https://user-images.githubusercontent.com/69760533/233500326-2ae634cf-7758-4fc7-b44f-bad655acbac7.png">
