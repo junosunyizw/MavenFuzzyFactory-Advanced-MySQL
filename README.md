@@ -257,14 +257,24 @@ Looking for ways to optimise campaign.
 
 <img width="652" alt="Q4-NEXT" src="https://user-images.githubusercontent.com/69760533/233479400-dcdb2770-a8a1-45f5-b9d4-1910303dfe6b.png">
 
-
 ***
-
-
 
 ### **Q5: Traffic Source Segment Trending**
 
 <img width="652" alt="Q5" src="https://user-images.githubusercontent.com/69760533/233479802-6b27da71-5b2a-42c7-893c-12c29f89f0f9.png">
 
+- **Request:**
 
+- **Results:**
 
+```SQL
+select min(date(w.created_at)) start_week,
+        -- week(w.created_at)
+        count(DISTINCT CASE WHEN  w.device_type = 'desktop' THEN w.website_session_id ELSE NULL END) desktop_sessions,
+        count(DISTINCT case WHEN w.device_type = 'mobile' then w.website_session_id ELSE NULL end) mobile_sessions
+from website_sessions w
+LEFT JOIN orders o
+on o.website_session_id=w.website_session_id
+WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at between '2012-04-15' and '2012-06-09'
+GROUP BY week(w.created_at)
+```
