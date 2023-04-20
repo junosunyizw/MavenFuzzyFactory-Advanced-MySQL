@@ -150,6 +150,7 @@ After getting results, CEO wants to drill deeper into gsearch nonbrand campaign 
 
 ### Q2: Traffic Conversion Rates
 
+<img width="652" alt="Q2" src="https://user-images.githubusercontent.com/69760533/233285906-ed2cd46d-eb35-4e2d-9888-c304c4f72b12.png">
 
 
 - **Request:** 
@@ -170,4 +171,6 @@ ON o.website_session_id=w.website_session_id
 WHERE w.utm_source = 'gsearch' and w.utm_campaign = 'nonbrand' and w.created_at < '2012-04-14' -- Don`t forget date
 GROUP BY 1,2
 ```
+
+<img width="843" alt="Q2-RESULTS" src="https://user-images.githubusercontent.com/69760533/233286106-10ae8d20-b577-4960-b37f-baf16bff6ff4.png">
 
