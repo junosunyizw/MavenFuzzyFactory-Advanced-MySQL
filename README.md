@@ -224,5 +224,6 @@ GROUP BY 2;
 - **Next Steps:**
 Continuing to monitor volume levels and think about how we could make the campaigns more efficient so that we can increase volume again.
 
+<img width="652" alt="Q3-NEXT" src="https://user-images.githubusercontent.com/69760533/233378790-1cdb4f9d-08aa-458e-b8a1-79fbf99cc36d.png">
 
 
