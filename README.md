@@ -200,6 +200,7 @@ customers driven to your site
 
 ### **Q3: Traffic Source Trending**
 
+<img width="633" alt="Q3" src="https://user-images.githubusercontent.com/69760533/233364043-b98cc55a-440a-4c03-bea9-fe72d1935232.png">
 
 
 - **Request:** 
@@ -218,3 +219,5 @@ on o.website_session_id=w.website_session_id
 WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '2012-05-10' -- looking at `trend` volume means to compare data before bids down.
 GROUP BY 2;
 ```
+<img width="874" alt="Q3-RESULTS" src="https://user-images.githubusercontent.com/69760533/233364098-6d5c999e-3a4a-4949-9011-ff5e818618f4.png">
+
