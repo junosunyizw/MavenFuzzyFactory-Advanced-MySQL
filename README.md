@@ -255,12 +255,16 @@ GROUP BY 1;
 - **Next Steps:**
 Looking for ways to optimise campaign.
 
+<img width="652" alt="Q4-NEXT" src="https://user-images.githubusercontent.com/69760533/233479400-dcdb2770-a8a1-45f5-b9d4-1910303dfe6b.png">
+
 
 ***
 
 
 
 ### **Q5: Traffic Source Segment Trending**
+
+<img width="652" alt="Q5" src="https://user-images.githubusercontent.com/69760533/233479802-6b27da71-5b2a-42c7-893c-12c29f89f0f9.png">
 
 
 
