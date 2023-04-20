@@ -179,7 +179,26 @@ the following action is to reduce bids and then monitor the impact of bigs reduc
 
 <img width="654" alt="Q2-NEXT" src="https://user-images.githubusercontent.com/69760533/233330351-1cbd6e90-1cd4-45f7-b77c-ee7a95979445.png">
 
+***
+### **Bid Optimization & Trend Analysis**
 
+Analyzing for bid optimization is about understanding the value of various segments of paid traffic, so that you can optimize your marketing budget.
+
+ - **Target:** To figure out the right amount of bid for different segments of traffic based on potential revenue.
+
+- **How?:** 
+    - Using conversion rate and revenue per click
+analyses to figure out how much you should
+spend per click to acquire customers
+    - Understanding how your website and products
+perform for various subsegments of traffic to optimize within channels
+    - Analyzing the impact that bid changes have on
+your ranking in the auctions, and the volume of
+customers driven to your site
+
+***
+
+### **Q3: Traffic Source Trending**
 
 
 
