@@ -202,4 +202,19 @@ customers driven to your site
 
 
 
+- **Request:** 
 
+- **Results:** 
+
+```SQL
+select min(DATE(w.created_at)) week_start_date,
+        WEEK(w.created_at) num_weeksofyear,
+        count(DISTINCT w.website_session_id) num_sessions,
+        count(DISTINCT o.order_id) num_orders,
+        count(DISTINCT o.order_id)/count(DISTINCT w.website_session_id)*100 CVR
+from website_sessions w
+LEFT JOIN orders o
+on o.website_session_id=w.website_session_id
+WHERE utm_source = 'gsearch' and utm_campaign ='nonbrand' and w.created_at < '2012-05-10' -- looking at `trend` volume means to compare data before bids down.
+GROUP BY 2
+```
