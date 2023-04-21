@@ -323,7 +323,7 @@ ORDER BY 2 DESC;
 ```
 <img width="321" alt="Q6-RESULTS" src="https://user-images.githubusercontent.com/69760533/233518983-0b3ba1c8-3daf-48ca-8020-cbeb8128e8ef.png">
 
-- **Next Steps:**
+- **Next Steps:** finding out top entry pages and analyzing the performance of each of top pages to look for improvement opportunities.
 
 <img width="647" alt="Q6-NEXT" src="https://user-images.githubusercontent.com/69760533/233519043-375e6657-10c9-4522-ba20-597207c7e162.png">
 
