@@ -297,7 +297,7 @@ Website content analysis is about understanding which pages are seen the most by
     - Understandinging how those pages perform for the business activities.
 
 - **How?**
-    - Analyzing home pages
+    - Analyzing top landing page
     - Analyzing bounce rates and landing pages test
     - building conversion funnels and testing conversion paths.
 
