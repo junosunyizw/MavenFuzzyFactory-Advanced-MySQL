@@ -305,16 +305,11 @@ Website content analysis is about understanding which pages are seen the most by
 
 ## **Q6: Identifying Top Website Pages**
 
-
-
-
+<img width="642" alt="Q6" src="https://user-images.githubusercontent.com/69760533/233518954-5547b955-61de-44d7-a899-fe2a12399787.png">
 
 - **Request:** Identify most viewd website pages ranked by session volume
 
-
-
 - **Results:** `/home` page got most views
-
 
 ```SQL
 SELECT pageview_url,
@@ -326,4 +321,10 @@ WHERE DATE(ws.created_at) < '2012-06-09'
 GROUP BY 1
 ORDER BY 2 DESC;
 ```
+<img width="321" alt="Q6-RESULTS" src="https://user-images.githubusercontent.com/69760533/233518983-0b3ba1c8-3daf-48ca-8020-cbeb8128e8ef.png">
+
+- **Next Steps:**
+
+<img width="647" alt="Q6-NEXT" src="https://user-images.githubusercontent.com/69760533/233519043-375e6657-10c9-4522-ba20-597207c7e162.png">
+
 
