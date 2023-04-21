@@ -306,3 +306,24 @@ Website content analysis is about understanding which pages are seen the most by
 ## **Q6: Identifying Top Website Pages**
 
 
+
+
+
+- **Request:** Identify most viewd website pages ranked by session volume
+
+
+
+- **Results:** `/home` page got most views
+
+
+```SQL
+SELECT pageview_url,
+        count(DISTINCT wv.website_session_id) page_view
+FROM website_pageviews wv
+LEFT JOIN website_sessions ws
+ON wv.website_session_id=ws.website_session_id
+WHERE DATE(ws.created_at) < '2012-06-09'
+GROUP BY 1
+ORDER BY 2 DESC;
+```
+
