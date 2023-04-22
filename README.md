@@ -362,4 +362,8 @@ ORDER BY 2 DESC
 ![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7-RESULTS.png)
 
 
+- **Next Steps:** 
+
 ![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7-NEXT.png)
+
+***
