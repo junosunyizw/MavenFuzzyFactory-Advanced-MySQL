@@ -382,3 +382,6 @@ Landing page analysis and testing is about understanding the performance of your
 
 ***
 
+## **Q8: Calculating Bounce Rates**
+
+  
