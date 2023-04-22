@@ -331,11 +331,11 @@ ORDER BY 2 DESC;
 
 ## **Q7: Identifying Top Entry Pages**
 
+![q7](Q7.png)
 
+- **Request:** finding out top entry pages
 
-- **Request:**
-
-- **Results:**
+- **Results:** home page is top entry page.
 
 ```SQL
 
@@ -358,3 +358,7 @@ ON T1.MIN_WPID=WP.website_pageview_id
 GROUP BY 1
 ORDER BY 2 DESC 
 ```
+
+
+
+- **Next Steps:**
