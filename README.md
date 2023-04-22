@@ -362,7 +362,7 @@ ORDER BY 2 DESC
 ![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7-RESULTS.png)
 
 
-- **Next Steps:** 
+- **Next Steps:** Analyze landing page performance, for the homepage sepcifically. and think about whether or not the homepage is the best intitial experience for all customers
 
 ![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7-NEXT.png)
 
