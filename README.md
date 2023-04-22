@@ -331,7 +331,7 @@ ORDER BY 2 DESC;
 
 ## **Q7: Identifying Top Entry Pages**
 
-
+![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7.png)
 
 - **Request:** finding out top entry pages
 
@@ -359,6 +359,9 @@ GROUP BY 1
 ORDER BY 2 DESC 
 ```
 
+![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7-RESULTS.png)
 
 
 - **Next Steps:**
+
+![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7-NEXT.png)
