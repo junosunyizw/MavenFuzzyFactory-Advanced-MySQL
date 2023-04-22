@@ -331,7 +331,7 @@ ORDER BY 2 DESC;
 
 ## **Q7: Identifying Top Entry Pages**
 
-![q7](Q7.png)
+
 
 - **Request:** finding out top entry pages
 
