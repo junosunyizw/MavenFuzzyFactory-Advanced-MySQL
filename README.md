@@ -367,3 +367,18 @@ ORDER BY 2 DESC
 ![Alt text](Assets/Q7-Identifying%20Top%20Entry%20Pages/Q7-NEXT.png)
 
 ***
+
+## **Landing Page Performance & Testing**
+
+Landing page analysis and testing is about understanding the performance of your key landing pages and then testing to improve your results
+
+- **Target:** 
+    - Identifying your top opportunities for landing pages high volume pages with higher than expected bounce rates or low conversion rates
+    - bounce means no more additional page view after viewing first page vice versa
+
+- **How?:** 
+    - analyze landing page performance and compare multiple pages.
+    - finding the first pageview for relevant sessions, asocitate that pageview with the url seen, then analyze whether that session had additional pageviews
+
+***
+
