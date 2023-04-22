@@ -327,4 +327,34 @@ ORDER BY 2 DESC;
 
 <img width="647" alt="Q6-NEXT" src="https://user-images.githubusercontent.com/69760533/233519043-375e6657-10c9-4522-ba20-597207c7e162.png">
 
+***
 
+## **Q7: Identifying Top Entry Pages**
+
+
+
+- **Request:**
+
+- **Results:**
+
+```SQL
+
+-- Can use TEMPORARY TEABLE, SUBQUERY Instead
+WITH T1 AS
+(
+SELECT 
+        website_session_id WSID,
+        MIN(website_pageview_id) MIN_WPID
+FROM website_pageviews
+WHERE date(created_at) <'2012-06-12'
+GROUP BY 1
+)
+
+SELECT WP.pageview_url ,
+        count(DISTINCT(T1.MIN_WPID))
+FROM T1
+LEFT JOIN website_pageviews WP
+ON T1.MIN_WPID=WP.website_pageview_id
+GROUP BY 1
+ORDER BY 2 DESC 
+```
