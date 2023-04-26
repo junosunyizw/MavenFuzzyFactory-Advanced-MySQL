@@ -432,8 +432,57 @@ on fp.website_session_id=bv.website_session_id;
  ## **Q9: Analyzing Landing Page Tests**
 
 
-- **Request:** Running A/B teset for `/home` and `/lander-1` for gsearch compaign and finding out their bounce rate. Remember to limit the timeframe from `2012-06-19` to `2012-07-28` to ensure fair comparsion.
+- **Request:** Running A/B teset for `/home` and `/lander-1` for gsearch compaign and finding out their bounce rate. Remember to limit the timeframe to ensure fair comparsion. So the first thing is to find out when is the first date that `/lander-` was created. and then find landing sessions from `2012-06-19` to `2012-07-28`
 
 
 - **Results:** 
+
+```SQL
+-- Step 1: Find when /lander-1 was created and displayed. limit `create_at`and `pageview_id` 
+
+SELECT MIN(created_at),
+        min(website_pageview_id),
+        pageview_url
+FROM website_pageviews
+where pageview_url = '/lander-1';-- result is `2012-06-19`
+
+
+-- Step 2: getting results from last query. limit the landing pages from `2012-06-19` to `2012-07-28` and utm_source as `gsearch` and utm_coampaign as `nonbrand` according to WM requested
+WITH cte_landingpage_views AS
+(
+SELECT min(wp.website_pageview_id) min_landingpage, 
+        wp.website_session_id,
+        wp.pageview_url -- landing pages
+FROM website_pageviews wp
+JOIN website_sessions ws
+ON wp.website_session_id=ws.website_session_id
+WHERE wp.pageview_url IN ('/home','/lander-1') 
+        and wp.created_at BETWEEN '2012-06-19' AND '2012-07-28'
+        and ws.utm_source = 'gsearch'
+        and ws.utm_campaign = 'nonbrand' -- setting up fair timeframe and objectives for A/B TEST 
+GROUP BY 2,3
+),
+-- Step 3: identity bounce views
+cte_bouncepage_view AS
+(
+SELECT wp.website_session_id,
+        count(wp.website_pageview_id) bounce_views
+FROM cte_landingpage_views clv
+LEFT JOIN website_pageviews wp 
+ON clv.website_session_id=wp.website_session_id -- join session id with first landing pages
+GROUP BY 1
+HAVING count(wp.website_pageview_id) = 1 -- limit view times, 1 means bounce session.
+)
+
+-- Step 4: Calculate number of sessions and bounce sessions by landing pages and bounce rates for comparsion
+
+SELECT pageview_url landing_pages,
+        count(DISTINCT clv.website_session_id) total_sessions,-- number of session by landing pages
+        count(DISTINCT cbv.website_session_id) bounce_sessions,-- number of bounce sessions by landing page
+        count(DISTINCT cbv.website_session_id)/count(DISTINCT clv.website_session_id) bounce_rates --  bounce rate
+from cte_landingpage_views clv
+LEFT JOIN cte_bouncepage_view cbv
+ON clv.website_session_id=cbv.website_session_id -- use left join to preserve all sessions with 1 page view
+GROUP BY 1;
+```
 
