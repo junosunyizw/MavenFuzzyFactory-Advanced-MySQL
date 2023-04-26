@@ -384,4 +384,40 @@ Landing page analysis and testing is about understanding the performance of your
 
 ## **Q8: Calculating Bounce Rates**
 
-  
+ - **Request:**  
+
+
+- **Results:** 
+
+```SQL
+WITH first_pageview AS -- 1.find sessions for landing page
+(
+SELECT wp.website_session_id,
+        pageview_url,
+        min(wp.website_pageview_id) min_pageview_id
+FROM website_pageviews wp
+JOIN website_sessions ws
+ON wp.website_session_id=ws.website_session_id
+WHERE wp.created_at <= '2012-06-14' and pageview_url = '/home' -- conditions
+GROUP BY 1,2
+),
+bounce_view as -- 2.identify the bounce sessions
+(
+SELECT fp.pageview_url,
+        fp.website_session_id,
+        count(wp.website_session_id) bounce_views
+
+FROM first_pageview fp
+LEFT JOIN website_pageviews wp
+ON fp.website_session_id=wp.website_session_id
+GROUP BY 1,2
+HAVING count(wp.website_session_id) = 1
+)
+select count(fp.website_session_id) total_sessions, -- 3.calculate bounce sessions and bounce rate
+        count(bv.website_session_id) bounce_session,
+        count(bv.website_session_id)/count(fp.website_session_id) bounce_rates
+from first_pageview fp
+LEFT JOIN bounce_view bv
+on fp.website_session_id=bv.website_session_id;
+```
+
