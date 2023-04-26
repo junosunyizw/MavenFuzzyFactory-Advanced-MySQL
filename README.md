@@ -431,6 +431,7 @@ on fp.website_session_id=bv.website_session_id;
 
  ## **Q9: Analyzing Landing Page Tests**
 
+![Alt text](Assets/%20Q9-Analyzing%20Landing%20Page%20Tests/Q9.png)
 
 - **Request:** Running A/B teset for `/home` and `/lander-1` for gsearch compaign and finding out their bounce rate. Remember to limit the timeframe to ensure fair comparsion. So the first thing is to find out when is the first date that `/lander-` was created. and then find landing sessions from `2012-06-19` to `2012-07-28`. besides, remeber to limit utm_source as `gsearch` and utm_campagin as `nonbrand` as requested.
 
@@ -485,4 +486,8 @@ LEFT JOIN cte_bouncepage_view cbv
 ON clv.website_session_id=cbv.website_session_id -- use left join to preserve all sessions with 1 page view
 GROUP BY 1;
 ```
+![Alt text](Assets/%20Q9-Analyzing%20Landing%20Page%20Tests/Q9-RESULTS.png)
 
+- **Next Steps:**
+
+![Alt text](Assets/%20Q9-Analyzing%20Landing%20Page%20Tests/Q9-NEXT.png)
