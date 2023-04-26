@@ -428,6 +428,7 @@ on fp.website_session_id=bv.website_session_id;
 
 ![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8_NEXT.png)
 
+***
 
  ## **Q9: Analyzing Landing Page Tests**
 
