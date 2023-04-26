@@ -384,6 +384,8 @@ Landing page analysis and testing is about understanding the performance of your
 
 ## **Q8: Calculating Bounce Rates**
 
+![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8.png)
+
  - **Request:**  
 
 
@@ -420,4 +422,8 @@ from first_pageview fp
 LEFT JOIN bounce_view bv
 on fp.website_session_id=bv.website_session_id;
 ```
+![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8-RESULTS.png)
 
+- **Next Steps:**
+
+![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8_NEXT.png)
