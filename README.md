@@ -427,3 +427,13 @@ on fp.website_session_id=bv.website_session_id;
 - **Next Steps:** WM thinks a new page will improve performance. So keeping eyes on bounce rates and setting up A/B test against the homepage. 
 
 ![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8_NEXT.png)
+
+
+ ## **Q9: Analyzing Landing Page Tests**
+
+
+- **Request:** Running A/B teset for `/home` and `/lander-1` for gsearch compaign and finding out their bounce rate. Remember to limit the timeframe from `2012-06-19` to `2012-07-28` to ensure fair comparsion.
+
+
+- **Results:** 
+
