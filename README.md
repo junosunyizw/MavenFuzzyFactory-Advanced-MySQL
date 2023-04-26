@@ -438,7 +438,7 @@ on fp.website_session_id=bv.website_session_id;
 - **Results:** 
 
 ```SQL
--- Step 1: Find when /lander-1 was created and displayed. limit `create_at`and `pageview_id` 
+-- Step 1: Find when /lander-1 was created and displayed. BY getting minmium of `create_at`and `pageview_id` 
 
 SELECT MIN(created_at),
         min(website_pageview_id),
