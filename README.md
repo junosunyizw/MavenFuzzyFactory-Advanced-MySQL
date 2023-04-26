@@ -386,10 +386,10 @@ Landing page analysis and testing is about understanding the performance of your
 
 ![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8.png)
 
- - **Request:**  
+ - **Request:** Finding sessions for landing pages before `2012-06-01` setting pageview_url as `/home`and then identify the bounce sessions.Finally, total sessions, number of bounces sessions for landing page and bounce rate should be calculated.
 
 
-- **Results:** 
+- **Results:** Bounce rate is 60%, which is very high for the paid search.
 
 ```SQL
 WITH first_pageview AS -- 1.find sessions for landing page
@@ -424,6 +424,6 @@ on fp.website_session_id=bv.website_session_id;
 ```
 ![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8-RESULTS.png)
 
-- **Next Steps:**
+- **Next Steps:** WM thinks a new page will improve performance. So keeping eyes on bounce rates and setting up A/B test against the homepage. 
 
 ![Alt text](Assets/Q8-Calculating%20Bounce%20Rates/Q8_NEXT.png)
