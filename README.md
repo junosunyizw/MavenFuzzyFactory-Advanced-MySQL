@@ -567,3 +567,62 @@ Conversion funnel analysis is about understanding and optimizing each step of yo
 ***
 
 ## **Q11: Building Conversion Funnel**
+
+
+- **Request:**
+
+
+- **Results:**
+
+
+```SQL
+
+WITH cte_pages_level AS
+(
+SELECT ws.website_session_id,
+        wp.pageview_url,
+        wp.created_at,
+        CASE WHEN wp.pageview_url = '/products' THEN 1 ELSE 0 END AS products_page,
+        CASE WHEN wp.pageview_url = '/the-original-mr-fuzzy' THEN 1 ELSE 0 END AS mrfuzzy_page,
+        CASE WHEN wp.pageview_url = '/cart' THEN 1 ELSE 0 END AS cart_page,
+        CASE WHEN wp.pageview_url = '/shipping' THEN 1 ELSE 0 END AS shipping_page,
+        CASE WHEN wp.pageview_url = '/billing' THEN 1 ELSE 0 END AS billing_page,
+        CASE WHEN wp.pageview_url = '/thank-you-for-your-order' THEN 1 ELSE 0 END AS thankyou_page
+FROM website_sessions ws
+JOIN website_pageviews wp
+ON ws.website_session_id=wp.website_session_id
+WHERE ws.utm_source = 'gsearch'
+        AND ws.utm_campaign = 'nonbrand'
+        AND ws.created_at BETWEEN '2012-08-05' AND '2012-09-05'
+),
+cte_pages_flag AS
+(
+SELECT website_session_id,
+        MAX(products_page) productspage_flag,
+        MAX(mrfuzzy_page) mrfuzzypage_flag,
+        MAX(cart_page) cartpage_flag,
+        MAX(shipping_page) shippingpage_flag,
+        MAX(billing_page) billingpage_flag,
+        MAX(thankyou_page) thankyoupage_flag
+FROM cte_pages_level
+GROUP BY 1
+)
+-- to page
+-- SELECT count(DISTINCT website_session_id) total_sessions,
+        -- count(DISTINCT CASE WHEN productspage_flag = 1 then website_session_id ELSE NULL END) to_productspage,
+        -- count(DISTINCT CASE WHEN mrfuzzypage_flag = 1 then website_session_id ELSE NULL END) to_mrfuzzypage,
+        -- count(DISTINCT CASE WHEN cartpage_flag = 1 then website_session_id ELSE NULL END) to_carpage,
+        -- count(DISTINCT CASE WHEN shippingpage_flag = 1 then website_session_id ELSE NULL END) to_shippingpage,
+        -- count(DISTINCT CASE WHEN billingpage_flag = 1 then website_session_id ELSE NULL END) to_billingpage,
+        -- count(DISTINCT CASE WHEN thankyoupage_flag = 1 then website_session_id ELSE NULL END) to_thankyoupage
+-- FROM cte_pages_flag;
+-- clickthrough page rate (conversion rate%)
+SELECT count(DISTINCT website_session_id) total_sessions,
+        count(DISTINCT CASE WHEN productspage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT website_session_id) landingpage_to_product_rate,
+        count(DISTINCT CASE WHEN mrfuzzypage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT CASE WHEN productspage_flag = 1 then website_session_id ELSE NULL END) productpage_to_mrfuzzypage_rate,
+        count(DISTINCT CASE WHEN cartpage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT CASE WHEN mrfuzzypage_flag = 1 then website_session_id ELSE NULL END) mrfuzzypage_to_cartpage_rate,
+        count(DISTINCT CASE WHEN shippingpage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT CASE WHEN cartpage_flag = 1 then website_session_id ELSE NULL END) carpage_to_shippingpage_rate,
+        count(DISTINCT CASE WHEN billingpage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT CASE WHEN shippingpage_flag = 1 then website_session_id ELSE NULL END) shippingpage_to_billingpage_rate,
+        count(DISTINCT CASE WHEN thankyoupage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT CASE WHEN billingpage_flag = 1 then website_session_id ELSE NULL END) billingpage_to_thankyoupage_rate
+FROM cte_pages_flag;
+```
