@@ -437,7 +437,7 @@ on fp.website_session_id=bv.website_session_id;
 - **Request:** Running A/B teset for `/home` and `/lander-1` for gsearch compaign and finding out their bounce rate. Remember to limit the timeframe to ensure fair comparsion. So the first thing is to find out when is the first date that `/lander-` was created. and then find landing sessions from `2012-06-19` to `2012-07-28`. besides, remeber to limit utm_source as `gsearch` and utm_campagin as `nonbrand` as requested.
 
 
-- **Results:** 
+- **Results:** the new /lander-1 `traffic has improved and bounce rate has reduced as well. So fewer customers has bounced on the landing page.
 
 ```SQL
 -- Step 1: Find when /lander-1 was created and displayed. BY getting minmium of `create_at`and `pageview_id` 
@@ -499,9 +499,9 @@ GROUP BY 1;
 
 
 
-- **Request:**
+- **Request:** Pulling data for paid `gsearch`,`nonbrand`campagin traffic on date between `2012-06-01` and `2012-08-31` and Summary total&bounce sessions, bounce rate by weekly.
 
-- **Request:**
+- **Results:**
 
 
 ```SQL
