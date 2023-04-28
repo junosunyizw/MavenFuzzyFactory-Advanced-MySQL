@@ -634,3 +634,24 @@ FROM cte_pages_flag;
 ![Alt text](Assets/Q11-Building%20Conversion%20Funnel/Q11-NEXT.png)
 
 ***
+
+
+## **Q12: Conversion Funnels Testing for billing page and new billing page**
+
+
+- **Request:**
+
+
+- **Results:**
+
+```SQL
+
+
+
+
+
+
+```
+
+
+- **Next Steps:** 
