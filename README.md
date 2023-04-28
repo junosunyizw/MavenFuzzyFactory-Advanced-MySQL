@@ -636,16 +636,40 @@ FROM cte_pages_flag;
 ***
 
 
-## **Q12: Conversion Funnels Testing for billing page and new billing page**
+## **Q12: Conversion Funnels Testing for `/billing` and `/billing-2`(A/B Testing)**
 
 
-- **Request:**
+- **Request:** WM develped billing page as `/billing-2` and will test the conversion rate for billing to order pages through all traffic.
 
 
 - **Results:**
 
 ```SQL
+-- 1. identify the time of billing-2 being online. in order to create fair comparison for this test.
+SELECT min(website_pageview_id),-- min pageview_id is 53550
+        pageview_url
+FROM website_pageviews
+WHERE pageview_url = '/billing-2';
 
+-- 2.summary of relvant page sessions and orders
+
+SELECT pageview_url,
+        count(DISTINCT pageview_sessions.website_session_id) total_sessions,
+        count(o.order_id) total_orders,
+        count(o.order_id)/count(DISTINCT pageview_sessions.website_session_id) conversion_rate
+
+FROM
+        (SELECT ws.website_session_id,
+                pageview_url
+        FROM website_sessions ws
+        LEFT JOIN website_pageviews wp
+        ON ws.website_session_id=wp.website_session_id
+        WHERE wp.website_pageview_id >= 53550
+                AND ws.created_at < '2012-11-10'
+                AND pageview_url IN ('/billing','/billing-2')) AS pageview_sessions
+LEFT JOIN orders o
+ON pageview_sessions.website_session_id=o.website_session_id
+GROUP BY 1;
 
 
 
