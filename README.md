@@ -553,3 +553,17 @@ GROUP BY 1;
 
 ***
 
+## Analyzing and Testing Conversion Funnels
+
+Conversion funnel analysis is about understanding and optimizing each step of your user’s experience on their journey toward purchasing your products.
+
+- **Target:** Homepage -> Product page -> add to cart page -> Sales
+
+- **How?:**
+        - Identifying the most common paths customers take before purchasing your products.
+        - Identifying how many of your users continue on to each next step in your conversion flow,and how many users abandon at each step.
+        - Optimize critical pain points where users are abandoning so that you can convert more users and sell more products.
+
+***
+
+
