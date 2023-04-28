@@ -570,10 +570,9 @@ Conversion funnel analysis is about understanding and optimizing each step of yo
 
 ![Alt text](Assets/Q11-Building%20Conversion%20Funnel/Q11.png)
 
-- **Request:**
+- **Request:** buiding conversion funnel all the way down from `/products`,`/the-original-mr-fuzzy`,`/cart`,`/shipping`,`/billing` to `/thank-you-for-your-order` under paid `gsearch` and `nonbrand` compagin traffic limit the time between `2012-08-05` to `2012-09-05`
 
-
-- **Results:**
+- **Results:** identify the pain points of landingpage to prodcutpage, mrfuzzypage to cartpage and billingpage to thankyoupage. all clickthrough rate are less than 50% which much less than other pages clickthrough. Most of customers dropped off from billing page.
 
 
 ```SQL
@@ -627,8 +626,11 @@ SELECT count(DISTINCT website_session_id) total_sessions,
         count(DISTINCT CASE WHEN thankyoupage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT CASE WHEN billingpage_flag = 1 then website_session_id ELSE NULL END) billingpage_to_thankyoupage_rate
 FROM cte_pages_flag;
 ```
+
 ![Alt text](Assets/Q11-Building%20Conversion%20Funnel/Q11-RESULTS.png)
 
-- **Next Steps:**
+- **Next Steps:** WM need to find out why user dropped off from these pages. and how to improve the billing page to make customers more comfortable to process the payment through billing page.
 
 ![Alt text](Assets/Q11-Building%20Conversion%20Funnel/Q11-NEXT.png)
+
+***
