@@ -501,7 +501,7 @@ GROUP BY 1;
 
 - **Request:** Pulling data for paid `gsearch`,`nonbrand`campagin traffic on date between `2012-06-01` and `2012-08-31` and Summary total&bounce sessions, bounce rate by weekly.
 
-- **Results:**
+- **Results:** bounce rate dropped from around 60% to around 50% after rounted landing page from /home to /lander-1. so there is improvement and /lander-1 is working better.
 
 
 ```SQL
@@ -550,3 +550,6 @@ GROUP BY 1;
 - **Next Steps:**
 
 ![Alt text](Assets/Q10-Landing%20Page%20Trend%20Analysis/Q10-NEXT.png)
+
+***
+
