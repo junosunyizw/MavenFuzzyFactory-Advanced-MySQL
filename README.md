@@ -542,5 +542,11 @@ SELECT YEARWEEK(created_at) Week_on_year,
         COUNT(DISTINCT CASE WHEN pageview_url = '/home'then website_session_id else null end) home_sessions,
         COUNT(DISTINCT CASE WHEN pageview_url = '/lander-1'then website_session_id else null end) lander1_sessions
 FROM cte_summary
-GROUP BY 1
+GROUP BY 1;
 ```
+
+![Alt text](Assets/Q10-Landing%20Page%20Trend%20Analysis/Q10-RESULTS.png)
+
+- **Next Steps:**
+
+![Alt text](Assets/Q10-Landing%20Page%20Trend%20Analysis/Q10-NEXT.png)
