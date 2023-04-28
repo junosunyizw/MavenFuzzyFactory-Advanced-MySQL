@@ -495,7 +495,7 @@ GROUP BY 1;
 
 ***
 
-- **Q10: Landing Page Trend Analysis**
+## **Q10: Landing Page Trend Analysis**
 
 ![Alt text](Assets/Q10-Landing%20Page%20Trend%20Analysis/Q10.png)
 
