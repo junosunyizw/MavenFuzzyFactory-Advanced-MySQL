@@ -671,10 +671,6 @@ LEFT JOIN orders o
 ON pageview_sessions.website_session_id=o.website_session_id
 GROUP BY 1;
 
-
-
-
-
 ```
 
 
