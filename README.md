@@ -674,6 +674,11 @@ GROUP BY 1;
 
 ```
 
-
+![Alt text](Assets/Q12-Conversion%20Funnels%20Testing%20/Q12-RESULTS.png)
 
 - **Next Steps:** 
+![Alt text](Assets/Q12-Conversion%20Funnels%20Testing%20/Q12-NEXT.png)
+
+***
+
+
