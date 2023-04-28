@@ -568,6 +568,7 @@ Conversion funnel analysis is about understanding and optimizing each step of yo
 
 ## **Q11: Building Conversion Funnel**
 
+![Alt text](Assets/Q11-Building%20Conversion%20Funnel/Q11.png)
 
 - **Request:**
 
@@ -626,3 +627,8 @@ SELECT count(DISTINCT website_session_id) total_sessions,
         count(DISTINCT CASE WHEN thankyoupage_flag = 1 then website_session_id ELSE NULL END)/count(DISTINCT CASE WHEN billingpage_flag = 1 then website_session_id ELSE NULL END) billingpage_to_thankyoupage_rate
 FROM cte_pages_flag;
 ```
+![Alt text](Assets/Q11-Building%20Conversion%20Funnel/Q11-RESULTS.png)
+
+- **Next Steps:**
+
+![Alt text](Assets/Q11-Building%20Conversion%20Funnel/Q11-NEXT.png)
