@@ -547,7 +547,7 @@ GROUP BY 1;
 
 ![Alt text](Assets/Q10-Landing%20Page%20Trend%20Analysis/Q10-RESULTS.png)
 
-- **Next Steps:**
+- **Next Steps:** looking into the conversion rate from pages. conversion funnels will be anaylzed and tested.
 
 ![Alt text](Assets/Q10-Landing%20Page%20Trend%20Analysis/Q10-NEXT.png)
 
