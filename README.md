@@ -489,6 +489,58 @@ GROUP BY 1;
 ```
 ![Alt text](Assets/%20Q9-Analyzing%20Landing%20Page%20Tests/Q9-RESULTS.png)
 
-- **Next Steps:**
+- **Next Steps:** ensure new compaign is directed to land-1 page and then monitoring bounce rate.
 
 ![Alt text](Assets/%20Q9-Analyzing%20Landing%20Page%20Tests/Q9-NEXT.png)
+
+***
+
+- **Q10: Landing Page Trend Analysis**
+
+
+
+- **Request:**
+
+- **Request:**
+
+
+```SQL
+
+-- 1.identify the landing page sessions
+WITH cte_landingpage_views AS
+(
+SELECT ws.website_session_id,
+        min(wp.website_pageview_id) landingpage_view_id,
+        count(ws.website_session_id) landingpage_sessions
+
+FROM website_sessions ws
+JOIN website_pageviews wp
+ON ws.website_session_id=wp.website_session_id
+WHERE ws.utm_source = 'gsearch'
+        AND ws.utm_campaign = 'nonbrand'
+        AND ws.created_at BETWEEN '2012-06-01' AND '2012-08-31'
+GROUP BY 1
+),
+-- 2.summary required field
+cte_summary AS
+(
+SELECT wp.pageview_url,
+        wp.created_at,
+        clv.*
+FROM cte_landingpage_views clv
+JOIN website_pageviews wp
+ON clv.landingpage_view_id=wp.website_pageview_id
+)
+-- 3. Summary by week (bounce rate, bounce sessions, total sessions, home sessions, lander1 sessions)
+
+SELECT YEARWEEK(created_at) Week_on_year,
+        MIN(DATE(created_at)) Week_start,
+        COUNT(DISTINCT website_session_id) total_sessions,
+        COUNT(DISTINCT CASE WHEN landingpage_sessions = 1 then website_session_id END) bounce_sessions,
+        ROUND(count(DISTINCT CASE WHEN landingpage_sessions = 1 then website_session_id END)/
+        COUNT(DISTINCT website_session_id),2) bounce_rates,
+        COUNT(DISTINCT CASE WHEN pageview_url = '/home'then website_session_id else null end) home_sessions,
+        COUNT(DISTINCT CASE WHEN pageview_url = '/lander-1'then website_session_id else null end) lander1_sessions
+FROM cte_summary
+GROUP BY 1
+```
