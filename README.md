@@ -638,10 +638,9 @@ FROM cte_pages_flag;
 
 ## **Q12: Conversion Funnels Testing for `/billing` and `/billing-2`(A/B Testing)**
 
+![Alt text](Assets/Q12-Conversion%20Funnels%20Testing%20/Q12.png)
 
 - **Request:** WM develped billing page as `/billing-2` and will test the conversion rate for billing to order pages through all traffic.
-
-![Alt text](Assets/Q12-Conversion%20Funnels%20Testing%20/Q12.png)
 
 - **Results:**
 
