@@ -792,7 +792,7 @@ GROUP BY 1;
 
 -- to find how many device types on sessions and orders
 Select DISTINCT device_type from website_sessions;
--- using CTE to summarize the results
+-- using CTE to summarize the results pivoting devices
 with mobile as(
 
         select 
