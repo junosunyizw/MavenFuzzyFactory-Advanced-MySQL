@@ -698,6 +698,27 @@ Maven Fuzzy Factory has been live for ~8 months, and your CEO is due to present 
 ### **Project Questions**
 
 ### *Q1:Gsearch seems to be the biggest driver of our business. Could you pull monthly trends for gsearch sessions and orders so that we can showcase the growth there?*
+
+- **Request:** `Monthly trends` for `gserach` `sessions`, `orders` and `sessions to orders rate` before `2012-11-27`
+
+
+- **Results:**
+
+```SQL
+SELECT 
+        EXTRACT(YEAR_MONTH FROM WS.created_at) yrmonth,
+        COUNT(DISTINCT ws.website_session_id) sessions,
+        count(DISTINCT o.order_id) orders,
+        ROUND(count(DISTINCT o.order_id)/COUNT(DISTINCT ws.website_session_id)*100,2) CVR
+        
+FROM website_sessions ws
+LEFT JOIN orders o
+ON ws.website_session_id=o.website_session_id
+
+WHERE utm_source = 'gsearch' AND ws.created_at < '2012-11-27'
+GROUP BY 1
+```
+
 ***
 
 ### *Q2:Next, it would be great to see a similar monthly trend for Gsearch, but this time splitting out nonbrand and brand campaigns separately. I am wondering if brand is picking up at all. If so, this is a good story to tell.*
