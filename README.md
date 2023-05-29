@@ -728,7 +728,7 @@ GROUP BY 1
 - **Results:**
 
 ```sql
--- My solutions by using CTE and then combine required column in a table. Althougt the answer looks longer than pivoting method, however it looks more clear to get the right answers.
+-- My solution by using CTE and then combine required columns in a table. Althougt the answer looks longer than pivoting method, however it is more clear to get the right answers.
 WITH brand as(
 
         SELECT 
@@ -782,6 +782,49 @@ GROUP BY 1;
 
 ***
 ### *Q3:While we’re on Gsearch, could you dive into nonbrand, and pull monthly sessions and orders split by device type? I want to flex our analytical muscles a little and show the board we really know our traffic sources.*
+
+- **Request:** On gsearch, diving into nonbrand and then comparing devices of monthly sessions and orders.
+
+- **Results:**
+
+
+```sql
+
+-- to find how many device types on sessions and orders
+Select DISTINCT device_type from website_sessions;
+-- using CTE to summarize the results
+with mobile as(
+
+        select 
+                EXTRACT(YEAR_MONTH from ws.created_at) yrmonth,
+                COUNT(DISTINCT ws.website_session_id) Msessions,
+                count(DISTINCT o.order_id) Morders,
+                ROUND(count(DISTINCT o.order_id)/COUNT(DISTINCT ws.website_session_id)*100,2) MCVR
+        from website_sessions ws
+        left join orders o
+        on ws.website_session_id=o.website_session_id
+        where utm_source='gsearch' and  utm_campaign='nonbrand' and ws.created_at < '2012-11-27' and device_type='mobile'
+        group by 1
+),
+desktop as(
+
+        select 
+                EXTRACT(YEAR_MONTH from ws.created_at) yrmonth,
+                COUNT(DISTINCT ws.website_session_id) Dsessions,
+                count(DISTINCT o.order_id) Dorders,
+                ROUND(count(DISTINCT o.order_id)/COUNT(DISTINCT ws.website_session_id)*100,2) DCVR
+        from website_sessions ws
+        left join orders o
+        on ws.website_session_id=o.website_session_id
+        where utm_source='gsearch' and  utm_campaign='nonbrand' and ws.created_at < '2012-11-27' and device_type='desktop'
+        group by 1
+)
+select *
+from mobile
+left join desktop 
+using (yrmonth);
+```
+
 ***
 
 ### *Q4:I’m worried that one of our more pessimistic board members may be concerned about the large % of traffic from Gsearch. Can you pull monthly trends for Gsearch, alongside monthly trends for each of our other channels?*
