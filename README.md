@@ -722,6 +722,64 @@ GROUP BY 1
 ***
 
 ### *Q2:Next, it would be great to see a similar monthly trend for Gsearch, but this time splitting out nonbrand and brand campaigns separately. I am wondering if brand is picking up at all. If so, this is a good story to tell.*
+
+- **Request:** Comparing `brand` and `non-brand` of Monthly trends for gserach sessions, orders and sessions to orders rate before 2012-11-27
+
+- **Results:**
+
+```sql
+-- My solutions by using CTE and then combine required column in a table. Althougt the answer looks longer than pivoting method, however it looks more clear to get the right answers.
+WITH brand as(
+
+        SELECT 
+                EXTRACT(YEAR_MONTH from ws.created_at) yrmonth,
+                COUNT(DISTINCT ws.website_session_id) sessions,
+                count(DISTINCT o.order_id) orders,
+                ROUND(count(DISTINCT o.order_id)/COUNT(DISTINCT ws.website_session_id)*100,2) CVR
+        FROM website_sessions ws
+        LEFT JOIN orders o
+        on ws.website_session_id=o.website_session_id
+        WHERE utm_source = 'gsearch' and utm_campaign = 'brand' and ws.created_at < '2012-11-27'
+        GROUP BY 1
+),
+nonbrand as(
+
+                SELECT 
+                EXTRACT(YEAR_MONTH from ws.created_at) yrmonth,
+                COUNT(DISTINCT ws.website_session_id) sessions,
+                count(DISTINCT o.order_id) orders,
+                ROUND(count(DISTINCT o.order_id)/COUNT(DISTINCT ws.website_session_id)*100,2) CVR
+        FROM website_sessions ws
+        LEFT JOIN orders o
+        on ws.website_session_id=o.website_session_id
+        WHERE utm_source = 'gsearch' and utm_campaign = 'nonbrand' and ws.created_at < '2012-11-27'
+        GROUP BY 1
+)
+select b.yrmonth yrmonth,b.sessions,b.orders,b.cvr,nb.sessions,nb.orders,nb.cvr
+from brand b
+join nonbrand nb
+on b.yrmonth=nb.yrmonth;
+
+-- Pivoting Method
+SELECT 
+  EXTRACT(YEAR_MONTH FROM s.created_at) AS yrmonth,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'nonbrand' THEN s.website_session_id ELSE NULL END) AS nbsessions,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'nonbrand' THEN o.order_id ELSE NULL END) AS nborders,
+  ROUND(COUNT(DISTINCT CASE WHEN utm_campaign = 'nonbrand' THEN o.order_id ELSE NULL END)/
+    COUNT(DISTINCT CASE WHEN utm_campaign = 'nonbrand' THEN s.website_session_id ELSE NULL END)*100,2) AS nbcvr,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'brand' THEN s.website_session_id ELSE NULL END) AS bsessions,
+  COUNT(DISTINCT CASE WHEN utm_campaign = 'brand' THEN o.order_id ELSE NULL END) AS borders,
+  ROUND(COUNT(DISTINCT CASE WHEN utm_campaign = 'brand' THEN o.order_id ELSE NULL END)/
+    COUNT(DISTINCT CASE WHEN utm_campaign = 'brand' THEN s.website_session_id ELSE NULL END)*100,2) AS bcvr
+FROM website_sessions s
+LEFT JOIN orders o
+ON s.website_session_id = o.website_session_id
+WHERE s.created_at < '2012-11-27' AND s.utm_source = 'gsearch' AND s.utm_campaign IN ('nonbrand', 'brand')
+GROUP BY 1;
+
+```
+
+
 ***
 ### *Q3:While we’re on Gsearch, could you dive into nonbrand, and pull monthly sessions and orders split by device type? I want to flex our analytical muscles a little and show the board we really know our traffic sources.*
 ***
