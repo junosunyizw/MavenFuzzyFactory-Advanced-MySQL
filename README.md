@@ -828,6 +828,113 @@ using (yrmonth);
 ***
 
 ### *Q4:I’m worried that one of our more pessimistic board members may be concerned about the large % of traffic from Gsearch. Can you pull monthly trends for Gsearch, alongside monthly trends for each of our other channels?*
+
+- **Request:**
+
+- **Results:**
+
+```sql
+-- how many channels?
+
+select DISTINCT utm_source, utm_campaign, http_referer
+from website_sessions
+where created_at < '2012-11-27';
+
+-- total sessions,sessions segments of channels
+
+with totals as (
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) totalsessions
+        from website_sessions
+        where created_at < '2012-11-27'
+        group by 1
+),
+
+gnb as(
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) gnbsessions
+        from website_sessions
+        where created_at < '2012-11-27' and utm_source ='gsearch' and utm_campaign='nonbrand'
+        group by 1
+),
+
+gb as (
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) gbsessions
+        from website_sessions
+        where created_at < '2012-11-27' and utm_source ='gsearch' and utm_campaign='brand'
+        group by 1
+),
+
+bb as (
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) bbsessions
+        from website_sessions
+        where created_at < '2012-11-27' and utm_source ='bsearch' and utm_campaign='brand'
+        group by 1
+),
+
+bnb as(
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) bnbsessions
+        from website_sessions
+        where created_at < '2012-11-27' and utm_source ='bsearch' and utm_campaign='nonbrand'
+        group by 1
+),
+nhttp as(
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) nhttpsessions
+        from website_sessions
+        where created_at < '2012-11-27' and utm_source is null and http_referer is null
+        group by 1
+),
+gnhttp as(
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) gnhttpsessions
+        from website_sessions
+        where created_at < '2012-11-27' and utm_source is null and http_referer = 'https://www.gsearch.com'
+        group by 1
+),
+bnhttp as (
+
+        select 
+                EXTRACT(YEAR_MONTH from created_at) yrmonth,
+                count(DISTINCT website_session_id) bnhttpsessions
+        from website_sessions
+        where created_at < '2012-11-27' and utm_source is null and http_referer = 'https://www.bsearch.com'
+        group by 1
+)
+select *
+from totals
+left join gnb
+using (yrmonth)
+left join gb
+using (yrmonth)
+left join bb
+using (yrmonth)
+left join bnb
+using (yrmonth)
+left join nhttp
+using (yrmonth)
+left join gnhttp
+using (yrmonth)
+left join bnhttp
+using (yrmonth);
+```
 ***
 
 ### *Q5: I’d like to tell the story of our website performance improvements over the course of the first 8 months. Could you pull session to order conversion rates, by month?*
