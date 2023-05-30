@@ -719,6 +719,8 @@ WHERE utm_source = 'gsearch' AND ws.created_at < '2012-11-27'
 GROUP BY 1
 ```
 
+![Alt text](Assets/Mid%20Course/Q1%20Results.png)
+
 ***
 
 ### *Q2:Next, it would be great to see a similar monthly trend for Gsearch, but this time splitting out nonbrand and brand campaigns separately. I am wondering if brand is picking up at all. If so, this is a good story to tell.*
@@ -779,6 +781,7 @@ GROUP BY 1;
 
 ```
 
+![Alt text](Assets/Mid%20Course/Q2%20Results.png)
 
 ***
 ### *Q3:While we’re on Gsearch, could you dive into nonbrand, and pull monthly sessions and orders split by device type? I want to flex our analytical muscles a little and show the board we really know our traffic sources.*
@@ -824,6 +827,8 @@ from mobile
 left join desktop 
 using (yrmonth);
 ```
+
+![Alt text](Assets/Mid%20Course/Q3%20Results.png)
 
 ***
 
@@ -936,7 +941,12 @@ using (yrmonth)
 left join bnhttp
 using (yrmonth);
 ```
+
+![Alt text](Assets/Mid%20Course/Q4%20Results.png)
+
 ***
+
+
 
 ### *Q5: I’d like to tell the story of our website performance improvements over the course of the first 8 months. Could you pull session to order conversion rates, by month?*
 
@@ -959,6 +969,7 @@ WHERE ws.created_at < '2012-11-27'
 GROUP BY 1,2;
 ```
 
+![Alt text](Assets/Mid%20Course/Q5%20Results.png)
 
 ***
 
