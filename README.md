@@ -978,6 +978,56 @@ GROUP BY 1,2;
 - **Request:**
 
 - **Results:**
+``` sql
+-- find the first pageview for lander-1
+select
+        min(website_pageview_id) firstpageviewid
+from website_pageviews
+where pageview_url = '/lander-1';
+
+-- firstpage view id is 23504
+-- websessions for lander-1
+select wp.pageview_url landingpage,
+        COUNT(DISTINCT ws.website_session_id) sessions,
+        count(DISTINCT o.order_id) orders,
+        ROUND(count(DISTINCT o.order_id)/COUNT(DISTINCT ws.website_session_id)*100,2) CVR
+From website_sessions ws
+left join orders o
+using (website_session_id)
+inner join website_pageviews wp
+using (website_session_id)
+where ws.created_at < '2012-7-28' and website_pageview_id >= 23504 and utm_source = 'gsearch' and utm_campaign='nonbrand'
+        AND wp.pageview_url in ('/home','/lander-1')
+group by 1;
+
+-- 0.88% CVR increased
+SELECT 4.06-3.18 AS Increamental CVR;
+
+-- finding the most recent pageview for gsearch nonbran dwhere the traffice was sent to /home
+select 
+        MAX(ws.website_session_id)
+from website_sessions ws
+left join website_pageviews wp
+using (website_session_id)
+where utm_source = 'gsearch'
+        and utm_campaign = 'nonbrand'
+        and ws.created_at < '2012-11-27'
+        and pageview_url = '/home';
+
+-- max website sessions id is 17145
+select count(website_session_id)
+
+from website_sessions
+where utm_source = 'gsearch'
+        and utm_campaign = 'nonbrand'
+        and created_at < '2012-11-27'
+        and website_session_id > 17145; -- last /home session
+
+-- 202 extra orders since 7/29, roughly 50 extra orders per month.
+select 22972*0.0088 as extra_orders;
+
+```
+
 
 ***
 
