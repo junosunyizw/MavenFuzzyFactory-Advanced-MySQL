@@ -1037,6 +1037,71 @@ select 22972*0.0088 as extra_orders;
 
 - **Results:**
 
+```SQL
+
+with flagsessions as
+(
+select ws.website_session_id,
+        wp.pageview_url,
+        case when pageview_url = '/home' then 1 else 0 end as homepage,
+        case when pageview_url = '/lander-1' then 1 else 0 end as landerpage,
+        case when pageview_url = '/products' then 1 else 0 end as productpage,
+        case when pageview_url = '/the-original-mr-fuzzy' then 1 else 0 end as mrfuzzypage,
+        case when pageview_url = '/cart' then 1 else 0 end as cartpage,
+        case when pageview_url = '/shipping' then 1 else 0 end as shippingpage,
+        case when pageview_url = '/billing' then 1 else 0 end as billingpage,
+        case when pageview_url = '/thank-you-for-your-order' then 1 else 0 end as thankyoupage
+from website_sessions ws
+left join website_pageviews wp
+using (website_session_id)
+where utm_source = 'gsearch'
+        and utm_campaign = 'nonbrand'
+        and ws.created_at < '2012-07-28' and ws.created_at >'2012-06-19'
+order by 1
+),
+
+sessionmadepages as(
+        
+select website_session_id,
+        max(homepage) sawhomepage,
+        max(landerpage) sawlanderpage,
+        max(productpage) sawproductpage,
+        max(mrfuzzypage) sawmrfuzzypage,
+        max(cartpage) sawcartpage,
+        max(shippingpage) sawshippingpage,
+        max(billingpage) sawbillingpage,
+        max(thankyoupage) sawthankyoupage
+from flagsessions
+group by 1
+),
+pagessessioncount as
+(
+select 
+        case when sawhomepage = 1 then 'sawhomepage'
+        when sawlanderpage = 1 then 'sawlanderpage' else 'none' end as segments,
+        count(DISTINCT website_session_id) as sessions,
+        count(DISTINCT case when sawproductpage = 1 then website_session_id else null end) as productsessions,
+        count(DISTINCT case when sawmrfuzzypage = 1 then website_session_id else null end) as mrfuzzysessions,
+        count(DISTINCT case when sawcartpage = 1 then website_session_id else null END) as cartsessions,
+        count(DISTINCT case when sawshippingpage = 1 then website_session_id else null END) as shippingsessions,
+        count(DISTINCT case when sawbillingpage = 1 then website_session_id else null end) as biliingsessions,
+        count(DISTINCT case when sawthankyoupage = 1 then website_session_id else null end) as thankyousessions
+from sessionmadepages
+group by 1
+)
+
+-- click through rate
+
+select segments,
+        productsessions/sessions productpageCT,
+        mrfuzzysessions/sessions mrfuzzypageCT,
+        cartsessions/sessions cartpageCT,
+        shippingsessions/sessions shippingpageCT,
+        biliingsessions/sessions billingpageCT,
+        thankyousessions/sessions thanksyoupageCT
+from pagessessioncount;
+
+```
 
 ***
 
